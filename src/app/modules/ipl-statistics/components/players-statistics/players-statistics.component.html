@@ -9,11 +9,13 @@
     </div>
     <div class="col-5 chart">
         <div class="border-dark">
+            <div>Bar Graph</div>
             <canvas baseChart [datasets]="barDataSet" [labels]="graphLabels" [options]="graphOptions"
                 [plugins]="chartPlugins" [legend]="graphLegend" [chartType]="barType">
             </canvas>
         </div>
         <div class="border-dark">
+            <div>Doughnut</div>
             <canvas baseChart [datasets]="doughnutDataSet" [labels]="graphLabels" [options]="graphOptions"
                 [plugins]="chartPlugins" [legend]="graphLegend" [chartType]="doughNutType">
             </canvas>
@@ -21,11 +23,13 @@
     </div>
     <div class="col-5 chart">
         <div class="border-dark">
+            <div>line</div>
             <canvas baseChart [datasets]="doughnutDataSet" [labels]="graphLabels" [options]="graphOptions"
                 [plugins]="chartPlugins" [legend]="graphLegend" [chartType]="lineGraphType">
             </canvas>
         </div>
         <div class="border-dark">
+            <div>pie</div>
             <canvas baseChart [datasets]="doughnutDataSet" [labels]="graphLabels" [options]="graphOptions"
                 [plugins]="chartPlugins" [legend]="graphLegend" [chartType]="pieChartType">
             </canvas>
