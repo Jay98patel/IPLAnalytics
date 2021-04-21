@@ -7,7 +7,14 @@
             </ul>
         </div>
     </div>
-    <div class="col-10">
-        <div>Graph</div>
+    <div class="col-10 chart" *ngIf="playersStats">
+            <canvas baseChart 
+            [datasets]="chartData"
+            [labels]="graphLabels"
+            [options]="graphOptions"
+            [plugins]="chartPlugins"
+            [legend]="graphLegend"
+            [chartType]="chartType">
+          </canvas>
     </div>
 </div>
