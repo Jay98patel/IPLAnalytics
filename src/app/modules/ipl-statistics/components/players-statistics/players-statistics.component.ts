@@ -19,6 +19,8 @@ export class PlayersStatisticsComponent implements OnInit {
   doughnutDataSet:ChartDataSets[];
   doughNutType:ChartType='doughnut';
   barType: ChartType = 'bar';
+  lineGraphType: ChartType = 'line';
+  pieChartType: ChartType = 'pie';
   graphLegend = false;
   graphOptions: ChartOptions = {
     responsive: true,

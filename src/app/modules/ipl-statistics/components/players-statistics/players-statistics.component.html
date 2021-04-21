@@ -1,13 +1,13 @@
-<div class=" d-flex">
+<div class="d-flex" *ngIf="playersStats">
     <div class="col-2">
-        <div *ngIf="playersStats">
+        <div >
             <h4>Player's Name</h4>
             <ul class="list-group" *ngFor="let player of playersStats">
                 <li class="list-group-item">{{player.playerName}}</li>
             </ul>
         </div>
     </div>
-    <div class="col-10 chart " *ngIf="playersStats">
+    <div class="col-5 chart">
         <div class="border-dark">
             <canvas baseChart [datasets]="barDataSet" [labels]="graphLabels" [options]="graphOptions"
                 [plugins]="chartPlugins" [legend]="graphLegend" [chartType]="barType">
@@ -15,7 +15,19 @@
         </div>
         <div class="border-dark">
             <canvas baseChart [datasets]="doughnutDataSet" [labels]="graphLabels" [options]="graphOptions"
-                [plugins]="chartPlugins" [legend]="graphLegend" [chartType]="doughNutType" (click)="showPlayerScores($event)">
+                [plugins]="chartPlugins" [legend]="graphLegend" [chartType]="doughNutType">
+            </canvas>
+        </div>
+    </div>
+    <div class="col-5 chart">
+        <div class="border-dark">
+            <canvas baseChart [datasets]="doughnutDataSet" [labels]="graphLabels" [options]="graphOptions"
+                [plugins]="chartPlugins" [legend]="graphLegend" [chartType]="lineGraphType">
+            </canvas>
+        </div>
+        <div class="border-dark">
+            <canvas baseChart [datasets]="doughnutDataSet" [labels]="graphLabels" [options]="graphOptions"
+                [plugins]="chartPlugins" [legend]="graphLegend" [chartType]="pieChartType">
             </canvas>
         </div>
     </div>
