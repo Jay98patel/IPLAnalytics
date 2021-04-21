@@ -19,7 +19,7 @@ export class PlayersStatisticsComponent implements OnInit {
   doughnutDataSet:ChartDataSets[];
   doughNutType:ChartType='doughnut';
   barType: ChartType = 'bar';
-  graphLegend = true;
+  graphLegend = false;
   graphOptions: ChartOptions = {
     responsive: true,
   };
