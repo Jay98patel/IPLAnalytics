@@ -5,6 +5,7 @@ import { IplStatisticsRoutingModule } from './ipl-statistics-routing.module';
 import { PlayersStatisticsComponent } from './components/players-statistics/players-statistics.component';
 import { IplStatisticsComponent } from './ipl-statistics.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     IplStatisticsRoutingModule,
     HttpClientModule,
+    ChartsModule
   ]
 })
 export class IplStatisticsModule { }
