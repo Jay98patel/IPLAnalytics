@@ -14,11 +14,12 @@ export class PlayersStatisticsComponent implements OnInit {
 
   playersStats:Player[];
   graphLabels: Label[];
+  chartPlugins = [];
+  barDataSet: ChartDataSets[];
+  doughnutDataSet:ChartDataSets[];
+  doughNutType:ChartType='doughnut';
   barType: ChartType = 'bar';
   graphLegend = true;
-  chartPlugins = [];
-  chartData: ChartDataSets[];
-  doughNutType:ChartType='doughnut';
   graphOptions: ChartOptions = {
     responsive: true,
   };
@@ -40,7 +41,8 @@ export class PlayersStatisticsComponent implements OnInit {
         playerName.push(player.playerName);
         playerScores.push(player.playerScore)
         this.graphLabels=[...playerName];
-        this.chartData = [{ data: [...playerScores,50], label: 'Players Runs'}];
+        this.barDataSet = [{ data: [...playerScores,50], label: 'Players Runs'}];
+        this.doughnutDataSet = [{ data: [...playerScores], label: 'Players Runs'}];
         });
     },(error:HttpErrorResponse)=>{});
   }
