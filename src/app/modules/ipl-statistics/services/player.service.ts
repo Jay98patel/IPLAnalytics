@@ -4,9 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Player } from '../ipl-player-model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class PlayerService {
   private baseUrl:string;
 
@@ -15,6 +13,6 @@ export class PlayerService {
    }
 
    getPlayersStats():Observable<Player[]>{
-    return this.http.get<Player[]>(`${this.baseUrl}/playerStatistics`)
+    return this.http.get<Player[]>(`${this.baseUrl}/playerStatistics`);
    }
 }

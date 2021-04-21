@@ -7,14 +7,16 @@
             </ul>
         </div>
     </div>
-    <div class="col-10 chart" *ngIf="playersStats">
-            <canvas baseChart 
-            [datasets]="chartData"
-            [labels]="graphLabels"
-            [options]="graphOptions"
-            [plugins]="chartPlugins"
-            [legend]="graphLegend"
-            [chartType]="chartType">
-          </canvas>
+    <div class="col-10 chart " *ngIf="playersStats">
+        <div class="border-dark">
+            <canvas baseChart [datasets]="chartData" [labels]="graphLabels" [options]="graphOptions"
+                [plugins]="chartPlugins" [legend]="graphLegend" [chartType]="barType">
+            </canvas>
+        </div>
+        <div class="border-dark">
+            <canvas baseChart [datasets]="chartData" [labels]="graphLabels" [options]="graphOptions"
+                [plugins]="chartPlugins" [legend]="graphLegend" [chartType]="doughNutType">
+            </canvas>
+        </div>
     </div>
 </div>
