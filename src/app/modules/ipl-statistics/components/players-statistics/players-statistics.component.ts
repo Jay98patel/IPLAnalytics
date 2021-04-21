@@ -39,7 +39,7 @@ export class PlayersStatisticsComponent implements OnInit {
       this.playersStats.forEach((player:Player)=>
       {
         playerName.push(player.playerName);
-        playerScores.push(player.playerScore)
+        playerScores.push(player.playerScore);
         this.graphLabels=[...playerName];
         this.barDataSet = [{ data: [...playerScores,50], label: 'Players Runs'}];
         this.doughnutDataSet = [{ data: [...playerScores], label: 'Players Runs'}];
