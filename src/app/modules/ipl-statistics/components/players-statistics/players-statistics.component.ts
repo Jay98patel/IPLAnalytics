@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Player } from '../../ipl-player-model';
+import { PlayerService } from '../../services/player.service';
 
 @Component({
   selector: 'app-players-statistics',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./players-statistics.component.scss']
 })
 export class PlayersStatisticsComponent implements OnInit {
+  playersStats:Player[];
 
-  constructor() { }
+  constructor(private playerService:PlayerService) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
+    this.getPlayersStats();
+  }
+
+  getPlayersStats(){
+    this.playerService.getPlayersStats().subscribe((playersStats)=>{
+      this.playersStats=playersStats;
+    },(error)=>{})
   }
 
 }
