@@ -51,11 +51,6 @@ export class PlayersStatisticsComponent implements OnInit {
         },
       }
     },
-    elements: {
-      point: {
-        radius: 0
-      }
-    }
   };
 
   constructor(private playerService: PlayerService, private themeService: GraphDynamicThemingService) { }
@@ -83,7 +78,7 @@ export class PlayersStatisticsComponent implements OnInit {
         this.barDataSet = [{ data: [...playerScores], label: 'Players Runs', backgroundColor: 'yellow', hoverBackgroundColor: 'red' },
         { data: [...wickets], label: 'Wickets Taken' }];
 
-        lineChartOptions = [{ data: [...playerScores], label: 'Players Runs', lineTension: 0, backgroundColor: 'rgba(43, 179, 179, 0.15)', borderColor: '#2BB3B3' }];
+        lineChartOptions = [{ data: [...playerScores], label: 'Players Runs', lineTension: 0, backgroundColor: 'rgba(43, 179, 179, 0.15)', borderColor: '#2BB3B3', pointRadius: 0 }];
         this.doughnutDataSet = lineChartOptions;
 
         this.graphDataSet = [{ data: [...playerScores], label: 'Players Runs' },
