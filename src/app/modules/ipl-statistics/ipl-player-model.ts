@@ -5,3 +5,5 @@ export interface Player{
     playerScore:number,
     wicketTaken:number
 }
+
+export type Theme = 'light' | 'dark';

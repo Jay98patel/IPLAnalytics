@@ -8,6 +8,7 @@
         </div>
     </div>
     <div class="col-5 chart">
+        <button class="btn" (click)="changeChartTheme()">Change graph Theme</button>
         <div class="border-dark">
             <div class="d-flex justify-content-between">
                 <button class="btn btn-primary"(click)="changeChartColor()" >Change Graph Color</button>
@@ -15,22 +16,27 @@
                 <button class="btn btn-success" (click)="changeChartType()">Change Graph Type</button>
             </div>
             <app-graph baseChart [barDataSet]="barDataSet" [graphLabels]="graphLabels" [graphOptions]="graphOptions"
-             [graphLegend]="graphLegend" [chartType]="barChart" [graphColor]="graphColor"(chartClick)="onClickChartEvent($event)" (chartHover)="onHoverChart($event)"></app-graph>
+             [graphLegend]="graphLegend" [chartType]="barChart" [graphColor]="graphColor" (chartClick)="onClickChartEvent($event)" (chartHover)="onHoverChart($event)"></app-graph>
         </div>
         <div class="border-dark">
-            <div>Doughnut</div>
-            <app-graph baseChart [barDataSet]="doughnutDataSet" [graphLabels]="graphLabels" [graphOptions]="graphOptions"
+            <div>{{doughNutType}}</div>
+            <app-graph baseChart [barDataSet]="doughnutDataSet"  [graphLabels]="graphLabels" [graphOptions]="graphOptions"
             [graphLegend]="graphLegend" [chartType]="doughNutType"></app-graph>
+        </div>
+        <div class="border-dark">
+            <div>{{doughNutType}}</div>
+            <app-graph baseChart [barDataSet]="doughnutDataSet"  [graphLabels]="graphLabels" [graphOptions]="graphOptions"
+            [graphLegend]="graphLegend" [chartType]="polarArea"></app-graph>
         </div>
     </div>
     <div class="col-5 chart">
         <div class="border-dark">
-            <div>line</div>
+            <div>{{lineGraphType}}</div>
             <app-graph baseChart [barDataSet]="doughnutDataSet" [graphLabels]="graphLabels" [graphOptions]="graphOptions"
             [graphLegend]="graphLegend" [chartType]="lineGraphType"></app-graph>
         </div>
         <div class="border-dark">
-            <div>pie</div>
+            <div>{{pieChartType}}</div>
             <app-graph baseChart [barDataSet]="doughnutDataSet" [graphLabels]="graphLabels" [graphOptions]="graphOptions"
             [graphLegend]="graphLegend" [chartType]="pieChartType"></app-graph>
         </div>

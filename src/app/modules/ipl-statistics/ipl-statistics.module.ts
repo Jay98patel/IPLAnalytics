@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts';
 import { PlayerService } from './services/player.service';
 import { GraphComponent } from './components/graph/graph.component';
+import { GraphDynamicThemingService } from './services/graph-dynamic-theming.service';
 
 
 @NgModule({
@@ -18,6 +19,6 @@ import { GraphComponent } from './components/graph/graph.component';
     HttpClientModule,
     ChartsModule
   ],
-  providers:[PlayerService]
+  providers:[PlayerService,GraphDynamicThemingService]
 })
 export class IplStatisticsModule { }
