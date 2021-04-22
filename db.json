@@ -4,31 +4,36 @@
             "id":1,
             "playerName":"Dhoni",
             "year":2017,
-            "playerScore":65
+            "playerScore":65,
+            "wicketTaken":23
         },
         {
             "id":2,
             "playerName":"Virat",
             "year":2012,
-            "playerScore":60
+            "playerScore":60,
+            "wicketTaken":12
         },
         {
             "id":3,
             "playerName":"Rohit",
             "year":2014,
-            "playerScore":90
+            "playerScore":90,
+            "wicketTaken":35
         },
         {
             "id":4,
             "playerName":"AB de Villiers",
             "year":2017,
-            "playerScore":100
+            "playerScore":100,
+            "wicketTaken":20
         },
         {
             "id":5,
             "playerName":"Jasprit Bumrah",
             "year":2013,
-            "playerScore":55
+            "playerScore":55,
+            "wicketTaken":10
         }
         
     ]
