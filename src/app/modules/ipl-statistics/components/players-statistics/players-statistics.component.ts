@@ -5,6 +5,14 @@ import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
 import { HttpErrorResponse } from '@angular/common/http';
 
+/**
+ * graphLengend :- show legend below the chart.
+ * dataSets:- it accepts array of data.
+ * labels:- it is x axis labels
+ * chartType:-  indicates the type of charts, it can be: line, bar, radar, pie, polarArea, doughnut
+ * colors :- data colors, will use default and|or random colors if not specified.
+ */
+
 @Component({
   selector: 'app-players-statistics',
   templateUrl: './players-statistics.component.html',
@@ -18,10 +26,10 @@ export class PlayersStatisticsComponent implements OnInit {
   barDataSet: ChartDataSets[];
   doughnutDataSet:ChartDataSets[];
   doughNutType:ChartType='doughnut';
-  barType: ChartType = 'bar';
+  barChart: ChartType = 'bar';
   lineGraphType: ChartType = 'line';
   pieChartType: ChartType = 'pie';
-  graphLegend = false;
+  graphLegend = true;
   graphOptions: ChartOptions = {
     responsive: true,
   };

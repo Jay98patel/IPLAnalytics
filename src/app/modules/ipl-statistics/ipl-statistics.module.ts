@@ -7,10 +7,11 @@ import { IplStatisticsComponent } from './ipl-statistics.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts';
 import { PlayerService } from './services/player.service';
+import { GraphComponent } from './components/graph/graph.component';
 
 
 @NgModule({
-  declarations: [IplStatisticsComponent,PlayersStatisticsComponent],
+  declarations: [IplStatisticsComponent,PlayersStatisticsComponent, GraphComponent],
   imports: [
     CommonModule,
     IplStatisticsRoutingModule,

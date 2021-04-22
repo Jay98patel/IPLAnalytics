@@ -10,29 +10,25 @@
     <div class="col-5 chart">
         <div class="border-dark">
             <div>Bar Graph</div>
-            <canvas baseChart [datasets]="barDataSet" [labels]="graphLabels" [options]="graphOptions"
-                [plugins]="chartPlugins" [legend]="graphLegend" [chartType]="barType">
-            </canvas>
+            <app-graph baseChart [barDataSet]="barDataSet" [graphLabels]="graphLabels" [graphOptions]="graphOptions"
+             [graphLegend]="graphLegend" [chartType]="barChart"></app-graph>
         </div>
         <div class="border-dark">
             <div>Doughnut</div>
-            <canvas baseChart [datasets]="doughnutDataSet" [labels]="graphLabels" [options]="graphOptions"
-                [plugins]="chartPlugins" [legend]="graphLegend" [chartType]="doughNutType">
-            </canvas>
+            <app-graph baseChart [barDataSet]="doughnutDataSet" [graphLabels]="graphLabels" [graphOptions]="graphOptions"
+            [graphLegend]="graphLegend" [chartType]="doughNutType"></app-graph>
         </div>
     </div>
     <div class="col-5 chart">
         <div class="border-dark">
             <div>line</div>
-            <canvas baseChart [datasets]="doughnutDataSet" [labels]="graphLabels" [options]="graphOptions"
-                [plugins]="chartPlugins" [legend]="graphLegend" [chartType]="lineGraphType">
-            </canvas>
+            <app-graph baseChart [barDataSet]="doughnutDataSet" [graphLabels]="graphLabels" [graphOptions]="graphOptions"
+            [graphLegend]="graphLegend" [chartType]="lineGraphType"></app-graph>
         </div>
         <div class="border-dark">
             <div>pie</div>
-            <canvas baseChart [datasets]="doughnutDataSet" [labels]="graphLabels" [options]="graphOptions"
-                [plugins]="chartPlugins" [legend]="graphLegend" [chartType]="pieChartType">
-            </canvas>
+            <app-graph baseChart [barDataSet]="doughnutDataSet" [graphLabels]="graphLabels" [graphOptions]="graphOptions"
+            [graphLegend]="graphLegend" [chartType]="pieChartType"></app-graph>
         </div>
     </div>
 </div>
