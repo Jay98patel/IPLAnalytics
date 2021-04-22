@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Player } from '../../ipl-player-model';
 import { PlayerService } from '../../services/player.service';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
-import { Label } from 'ng2-charts';
+import { Color, Label } from 'ng2-charts';
 import { HttpErrorResponse } from '@angular/common/http';
 
 /**
@@ -24,6 +24,9 @@ export class PlayersStatisticsComponent implements OnInit {
   graphLabels: Label[];
   barDataSet: ChartDataSets[];
   doughnutDataSet: ChartDataSets[];
+  graphColor:Color[]=[
+    { backgroundColor: 'purple' }
+  ];
   doughNutType: ChartType = 'doughnut';
   barChart: ChartType = 'bar';
   lineGraphType: ChartType = 'line';
@@ -49,22 +52,26 @@ export class PlayersStatisticsComponent implements OnInit {
         playerName.push(player.playerName);
         playerScores.push(player.playerScore);
         this.graphLabels = [...playerName];
-        this.barDataSet = [{ data: [...playerScores, 50], label: 'Players Runs', backgroundColor: 'yellow', hoverBackgroundColor: 'red', }];
+        this.barDataSet = [{ data: [...playerScores], label: 'Players Runs', backgroundColor: 'yellow', hoverBackgroundColor: 'red', }];
         this.doughnutDataSet = [{ data: [...playerScores], label: 'Players Runs' }];
       });
     }, (error: HttpErrorResponse) => { });
   }
 
   onClickChartEvent({ event, active }: { event: MouseEvent, active: {}[] }) {
-    console.log(event, active);
+    /*console.log(event, active);*/
   }
 
   onHoverChart({ event, active }: { event: MouseEvent, active: {}[] }) {
-    console.log(event.x, active[0]);
+    /*console.log(event.x, active[0]);*/
 
   }
 
   changeChartType() {
     this.barChart = this.barChart == 'bar' ? 'polarArea' : 'bar';
+  }
+
+  changeChartColor(){
+    this.graphColor[0].backgroundColor=this.graphColor[0].backgroundColor == 'yellow' ? 'teal' : 'yellow';
   }
 }

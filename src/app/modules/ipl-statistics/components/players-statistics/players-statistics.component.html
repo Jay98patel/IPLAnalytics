@@ -9,10 +9,13 @@
     </div>
     <div class="col-5 chart">
         <div class="border-dark">
-            <div >{{barChart}}</div>
-            <button class="py-1 btn btn-success" (click)="changeChartType()">Change Graph Type</button>
+            <div class="d-flex justify-content-between">
+                <button class="btn btn-primary"(click)="changeChartColor()" >Change Graph Color</button>
+                <h3 >{{barChart}}</h3>
+                <button class="btn btn-success" (click)="changeChartType()">Change Graph Type</button>
+            </div>
             <app-graph baseChart [barDataSet]="barDataSet" [graphLabels]="graphLabels" [graphOptions]="graphOptions"
-             [graphLegend]="graphLegend" [chartType]="barChart" (chartClick)="onClickChartEvent($event)" (chartHover)="onHoverChart($event)"></app-graph>
+             [graphLegend]="graphLegend" [chartType]="barChart" [graphColor]="graphColor" (chartClick)="onClickChartEvent($event)" (chartHover)="onHoverChart($event)"></app-graph>
         </div>
         <div class="border-dark">
             <div>Doughnut</div>

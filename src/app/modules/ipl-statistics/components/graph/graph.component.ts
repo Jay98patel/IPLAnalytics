@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
-import { Label } from 'ng2-charts';
+import { Color, Label } from 'ng2-charts';
 
 @Component({
   selector: 'app-graph',
@@ -14,6 +14,8 @@ export class GraphComponent implements OnInit {
   @Input() chartType: ChartType ;
   @Input() graphLegend;
   @Input() graphOptions: ChartOptions;
+  @Input() graphColor:Color[];
+  
   @Output() chartClick=new EventEmitter<{ event: MouseEvent, active: {}[] }>();
   @Output() chartHover=new EventEmitter<{ event: MouseEvent, active: {}[] }>();
   constructor() { }
