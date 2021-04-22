@@ -20,11 +20,11 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class PlayersStatisticsComponent implements OnInit {
 
-  playersStats:Player[];
+  playersStats: Player[];
   graphLabels: Label[];
   barDataSet: ChartDataSets[];
-  doughnutDataSet:ChartDataSets[];
-  doughNutType:ChartType='doughnut';
+  doughnutDataSet: ChartDataSets[];
+  doughNutType: ChartType = 'doughnut';
   barChart: ChartType = 'bar';
   lineGraphType: ChartType = 'line';
   pieChartType: ChartType = 'pie';
@@ -33,26 +33,38 @@ export class PlayersStatisticsComponent implements OnInit {
     responsive: true,
   };
 
-  constructor(private playerService:PlayerService) { }
+  constructor(private playerService: PlayerService) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.getPlayersStats();
   }
 
-  getPlayersStats(){
-    let playerScores:number[]=[];
-    let playerName:string[]=[];
+  getPlayersStats() {
+    let playerScores: number[] = [];
+    let playerName: string[] = [];
 
-    this.playerService.getPlayersStats().subscribe((playersStats:Player[])=>{
-      this.playersStats=playersStats;
-      this.playersStats.forEach((player:Player)=>
-      {
+    this.playerService.getPlayersStats().subscribe((playersStats: Player[]) => {
+      this.playersStats = playersStats;
+      this.playersStats.forEach((player: Player) => {
         playerName.push(player.playerName);
         playerScores.push(player.playerScore);
-        this.graphLabels=[...playerName];
-        this.barDataSet = [{ data: [...playerScores,50], label: 'Players Runs'}];
-        this.doughnutDataSet = [{ data: [...playerScores], label: 'Players Runs'}];
-        });
-    },(error:HttpErrorResponse)=>{});
+        this.graphLabels = [...playerName];
+        this.barDataSet = [{ data: [...playerScores, 50], label: 'Players Runs', backgroundColor: 'yellow', hoverBackgroundColor: 'red', }];
+        this.doughnutDataSet = [{ data: [...playerScores], label: 'Players Runs' }];
+      });
+    }, (error: HttpErrorResponse) => { });
+  }
+
+  onClickChartEvent({ event, active }: { event: MouseEvent, active: {}[] }) {
+    console.log(event, active);
+  }
+
+  onHoverChart({ event, active }: { event: MouseEvent, active: {}[] }) {
+    console.log(event.x, active[0]);
+
+  }
+
+  changeChartType() {
+    this.barChart = this.barChart == 'bar' ? 'polarArea' : 'bar';
   }
 }

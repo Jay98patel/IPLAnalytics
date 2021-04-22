@@ -9,9 +9,10 @@
     </div>
     <div class="col-5 chart">
         <div class="border-dark">
-            <div>Bar Graph</div>
+            <div >{{barChart}}</div>
+            <button class="py-1 btn btn-success" (click)="changeChartType()">Change Graph Type</button>
             <app-graph baseChart [barDataSet]="barDataSet" [graphLabels]="graphLabels" [graphOptions]="graphOptions"
-             [graphLegend]="graphLegend" [chartType]="barChart"></app-graph>
+             [graphLegend]="graphLegend" [chartType]="barChart" (chartClick)="onClickChartEvent($event)" (chartHover)="onHoverChart($event)"></app-graph>
         </div>
         <div class="border-dark">
             <div>Doughnut</div>
