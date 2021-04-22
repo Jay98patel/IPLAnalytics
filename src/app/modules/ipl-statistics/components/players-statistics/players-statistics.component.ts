@@ -22,7 +22,6 @@ export class PlayersStatisticsComponent implements OnInit {
 
   playersStats:Player[];
   graphLabels: Label[];
-  chartPlugins = [];
   barDataSet: ChartDataSets[];
   doughnutDataSet:ChartDataSets[];
   doughNutType:ChartType='doughnut';
