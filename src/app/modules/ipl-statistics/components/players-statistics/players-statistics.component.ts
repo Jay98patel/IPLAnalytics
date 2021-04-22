@@ -23,68 +23,73 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   styleUrls: ['./players-statistics.component.scss']
 })
 export class PlayersStatisticsComponent implements OnInit {
-  
+
   playersStats: Player[];
   graphLabels: Label[];
   barDataSet: ChartDataSets[];
   doughnutDataSet: ChartDataSets[];
-  graphColor:Color[]=[
+  graphDataSet: ChartDataSets[];
+  graphColor: Color[] = [
     { backgroundColor: 'purple' }
   ];
-  
+
+  radarChartType: ChartType = 'radar'
   doughNutType: ChartType = 'doughnut';
   barChart: ChartType = 'bar';
   lineGraphType: ChartType = 'line';
   pieChartType: ChartType = 'pie';
-  polarArea:ChartType = 'polarArea'
-  graphLegend = true;
+  polarArea: ChartType = 'polarArea'
+  graphLegend = false;
   barChartPlugins = [pluginDataLabels];
 
   graphOptions: ChartOptions = {
     responsive: true,
+    tooltips: {
+      enabled: false
+    },
     plugins: {
       datalabels: {
-        anchor: 'end',
-        align: 'end',
+        formatter: () => {
+          return null;
+        },
       }
     },
-    // legend: {
-    //   labels: { fontColor: 'red' }
-    // },
-    // scales: {
-    //     xAxes: [{
-    //       ticks: { fontColor: 'black' },
-    //       gridLines: { color: 'rgba(255,255,255,0.1)' }
-    //     }],
-    //     yAxes: [{
-    //       ticks: { fontColor: 'black' },
-    //       gridLines: { color: 'rgba(255,255,255,0.1)' }
-    //     }]
-    //   }
+    elements: {
+      point: {
+        radius: 0
+      }
+    }
   };
 
-  constructor(private playerService: PlayerService,private themeService:GraphDynamicThemingService) { }
+  constructor(private playerService: PlayerService, private themeService: GraphDynamicThemingService) { }
 
   ngOnInit() {
     this.getPlayersStats();
+    console.log(this.graphOptions)
   }
 
   getPlayersStats() {
     let playerScores: number[] = [];
     let playerName: string[] = [];
-    let wickets: number[] =[];
-
+    let wickets: number[] = [];
+    let lineChartOptions: ChartDataSets[];
     this.playerService.getPlayersStats().subscribe((playersStats: Player[]) => {
       this.playersStats = playersStats;
+
       this.playersStats.forEach((player: Player) => {
         playerName.push(player.playerName);
         playerScores.push(player.playerScore);
         wickets.push(player.wicketTaken);
+
         this.graphLabels = [...playerName];
-        this.barDataSet = [{ data: [...playerScores], label: 'Players Runs', backgroundColor: 'yellow', hoverBackgroundColor: 'red', },
+        this.barDataSet = [{ data: [...playerScores], label: 'Players Runs', backgroundColor: 'yellow', hoverBackgroundColor: 'red' },
         { data: [...wickets], label: 'Wickets Taken' }];
-        this.doughnutDataSet = [{ data: [...playerScores], label: 'Players Runs' },
-        { data: [...wickets], label: 'Wickets Taken' }];
+
+        lineChartOptions = [{ data: [...playerScores], label: 'Players Runs', lineTension: 0, backgroundColor: 'rgba(43, 179, 179, 0.15)', borderColor: '#2BB3B3' }];
+        this.doughnutDataSet = lineChartOptions;
+
+        this.graphDataSet = [{ data: [...playerScores], label: 'Players Runs' },
+        { data: [...wickets], label: 'Wickets Taken', lineTension: 0 }];
       });
     }, (error: HttpErrorResponse) => { });
   }
@@ -94,18 +99,26 @@ export class PlayersStatisticsComponent implements OnInit {
   }
 
   onHoverChart({ event, active }: { event: MouseEvent, active: {}[] }) {
-    /*console.log(event.x, active[0]);*/
   }
 
   changeChartType() {
     this.barChart = this.barChart == 'bar' ? 'polarArea' : 'bar';
   }
 
-  changeChartColor(){
-    this.graphColor[0].backgroundColor=this.graphColor[0].backgroundColor == 'yellow' ? 'teal' : 'yellow';
+  changeChartColor() {
+    this.graphColor[0].backgroundColor = this.graphColor[0].backgroundColor == 'yellow' ? 'teal' : 'yellow';
+    /*this.backgroundColor: [
+      '#ced',
+      '#fda',
+      '#fdd',
+    ]*/
   }
 
-  changeChartTheme(){
+  changeChartTheme() {
     this.themeService.changeTheme('dark')
+  }
+
+  changeToDefaultTheme() {
+    this.themeService.changeTheme('light')
   }
 }

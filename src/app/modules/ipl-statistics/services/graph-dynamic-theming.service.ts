@@ -21,17 +21,28 @@ export class GraphDynamicThemingService {
         legend: {
           labels: { fontColor: 'red' }
         },
+        tooltips:{
+          backgroundColor:'yellow',
+          titleFontColor:'black',
+          bodyFontColor:'black',
+        },
+        showLines:false,
+        plugins: {
+          datalabels: {
+            anchor: 'center',
+            align: 'end',
+          }
+        },
         scales: {
           xAxes: [{
             ticks: { fontColor: 'red' },
-            gridLines: { color: 'rgba(255,255,255,0.1)' }
+            gridLines: { color: 'red',display:true }
           }],
           yAxes: [{
             ticks: { fontColor: 'red' },
-            gridLines: { color: 'rgba(255,255,255,0.1)' }
+            gridLines: { color: 'red' }
           }]
         },
-        
       };
     } else {
       setNewTheme = {};
