@@ -29,10 +29,7 @@ export class PlayersStatisticsComponent implements OnInit {
   barDataSet: ChartDataSets[];
   doughnutDataSet: ChartDataSets[];
   graphDataSet: ChartDataSets[];
-  graphColor: Color[] = [
-    { backgroundColor: 'purple' }
-  ];
-
+  graphColor: Color[];
   radarChartType: ChartType = 'radar'
   doughNutType: ChartType = 'doughnut';
   barChart: ChartType = 'bar';
@@ -65,7 +62,8 @@ export class PlayersStatisticsComponent implements OnInit {
 
   ngOnInit() {
     this.getPlayersStats();
-    console.log(this.graphOptions)
+    this.graphColor = [{ backgroundColor: 'purple' }
+    ]
   }
 
   getPlayersStats() {
