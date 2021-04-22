@@ -4,6 +4,7 @@ import { PlayerService } from '../../services/player.service';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 import { HttpErrorResponse } from '@angular/common/http';
+import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 
 /**
  * graphLengend :- show legend below the chart.
@@ -11,6 +12,7 @@ import { HttpErrorResponse } from '@angular/common/http';
  * labels:- it is x axis labels
  * chartType:-  indicates the type of charts, it can be: line, bar, radar, pie, polarArea, doughnut
  * colors :- data colors, will use default and|or random colors if not specified.
+ * pluginDataLabels:- it will label the value on the graph
  */
 
 @Component({
@@ -32,8 +34,15 @@ export class PlayersStatisticsComponent implements OnInit {
   lineGraphType: ChartType = 'line';
   pieChartType: ChartType = 'pie';
   graphLegend = true;
+  barChartPlugins = [pluginDataLabels]
   graphOptions: ChartOptions = {
     responsive: true,
+    plugins: {
+      datalabels: {
+        anchor: 'end',
+        align: 'end',
+      }
+    }
   };
 
   constructor(private playerService: PlayerService) { }

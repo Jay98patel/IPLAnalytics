@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
+import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 
 @Component({
   selector: 'app-graph',
@@ -15,7 +16,7 @@ export class GraphComponent implements OnInit {
   @Input() graphLegend;
   @Input() graphOptions: ChartOptions;
   @Input() graphColor:Color[];
-  
+  @Input() barChartPlugins = [pluginDataLabels];
   @Output() chartClick=new EventEmitter<{ event: MouseEvent, active: {}[] }>();
   @Output() chartHover=new EventEmitter<{ event: MouseEvent, active: {}[] }>();
   constructor() { }
