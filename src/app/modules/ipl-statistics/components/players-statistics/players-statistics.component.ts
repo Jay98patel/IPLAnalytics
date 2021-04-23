@@ -28,15 +28,22 @@ export class PlayersStatisticsComponent implements OnInit {
   graphLabels: Label[];
   barDataSet: ChartDataSets[];
   doughnutDataSet: ChartDataSets[];
+  pieChartDataSet:ChartDataSets[];
   graphDataSet: ChartDataSets[];
+
   graphColor: Color[];
+  pieChartColor:Color[];
+
   radarChartType: ChartType = 'radar'
   doughNutType: ChartType = 'doughnut';
   barChart: ChartType = 'bar';
   lineGraphType: ChartType = 'line';
   pieChartType: ChartType = 'pie';
-  polarArea: ChartType = 'polarArea'
+  polarArea: ChartType = 'polarArea';
+
   graphLegend = false;
+  pieChartLegend=true;
+
   barChartPlugins = [pluginDataLabels];
 
   graphOptions: ChartOptions = {
@@ -51,6 +58,11 @@ export class PlayersStatisticsComponent implements OnInit {
         },
       }
     },
+    legend: {
+      position: "bottom",
+      display: true,
+      labels: { fontColor: "black" },
+    }
   };
 
   constructor(private playerService: PlayerService, private themeService: GraphDynamicThemingService) { }
@@ -66,21 +78,31 @@ export class PlayersStatisticsComponent implements OnInit {
     let playerName: string[] = [];
     let wickets: number[] = [];
     let lineChartOptions: ChartDataSets[];
+    let pieChartOptions:ChartDataSets[];
+
     this.playerService.getPlayersStats().subscribe((playersStats: Player[]) => {
       this.playersStats = playersStats;
 
       this.playersStats.forEach((player: Player) => {
-        playerName.push(player.playerName);
-        playerScores.push(player.playerScore);
-        wickets.push(player.wicketTaken);
-
+        playerName.push(player.x_label);
+        playerScores.push(player.y_label);
+        wickets.push(player.y_label_second);
         this.graphLabels = [...playerName];
+
+        /*Bar Chart*/
         this.barDataSet = [{ data: [...playerScores], label: 'Players Runs', backgroundColor: 'yellow', hoverBackgroundColor: 'red' },
         { data: [...wickets], label: 'Wickets Taken' }];
 
+        /*Line Chart*/
         lineChartOptions = [{ data: [...playerScores], label: 'Players Runs', lineTension: 0, backgroundColor: 'rgba(43, 179, 179, 0.15)', borderColor: '#2BB3B3', pointRadius: 0 }];
         this.doughnutDataSet = lineChartOptions;
-
+        
+        /*Pie Chart*/
+        pieChartOptions=[{ data: [...playerScores], label: 'Players Runs'}];
+        this.pieChartDataSet=pieChartOptions;
+        this.pieChartColor=[{backgroundColor:['#33567F','#F0CB69','#CCD5E6','#8EC3A7','#5FB7E5']}]
+        
+        /*Other Chart*/
         this.graphDataSet = [{ data: [...playerScores], label: 'Players Runs' },
         { data: [...wickets], label: 'Wickets Taken', lineTension: 0 }];
       });

@@ -2,38 +2,73 @@
     "playerStatistics": [
         {
             "id":1,
-            "playerName":"Dhoni",
+            "x_label":"Dhoni",
             "year":2017,
-            "playerScore":65,
-            "wicketTaken":23
+            "y_label":65,
+            "y_label_second":23
         },
         {
             "id":2,
-            "playerName":"Virat",
+            "x_label":"Virat",
             "year":2012,
-            "playerScore":60,
-            "wicketTaken":12
+            "y_label":60,
+            "y_label_second":12
         },
         {
             "id":3,
-            "playerName":"Rohit",
+            "x_label":"Rohit",
             "year":2014,
-            "playerScore":90,
-            "wicketTaken":35
+            "y_label":90,
+            "y_label_second":35
         },
         {
             "id":4,
-            "playerName":"AB de Villiers",
+            "x_label":"AB de Villiers",
             "year":2017,
-            "playerScore":100,
-            "wicketTaken":20
+            "y_label":100,
+            "y_label_second":20
         },
         {
             "id":5,
-            "playerName":"Jasprit Bumrah",
+            "x_label":"Jasprit Bumrah",
             "year":2013,
-            "playerScore":55,
-            "wicketTaken":10
+            "y_label":55,
+            "y_label_second":10
+        },
+        {
+            "id":6,
+            "x_label":"Ganguly",
+            "year":2017,
+            "y_label":95,
+            "y_label_second":23
+        },
+        {
+            "id":7,
+            "x_label":"Sachin",
+            "year":2012,
+            "y_label":40,
+            "y_label_second":12
+        },
+        {
+            "id":8,
+            "x_label":"Sehwag",
+            "year":2014,
+            "y_label":70,
+            "y_label_second":35
+        },
+        {
+            "id":9,
+            "x_label":"Du pleSis",
+            "year":2017,
+            "y_label":77,
+            "y_label_second":20
+        },
+        {
+            "id":10,
+            "x_label":"Warner",
+            "year":2013,
+            "y_label":20,
+            "y_label_second":10
         }
         
     ]
