@@ -23,12 +23,12 @@ export class InverntoryReportComponent implements OnInit {
       enabled: false
     },
     layout:{
-      // padding:{
-      //   top: 30,
-      //   right: 0,
-      //   bottom: 100,
-      //   left: 200,
-      // }
+      padding:{
+        top: 30,
+        right: 0,
+        bottom: 100,
+        left: 200,
+      }
     },
      plugins: {
       datalabels: {
