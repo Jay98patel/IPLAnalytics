@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayerService } from '../../services/player.service';
-import { InventoryReport,StockByBranches } from '../../ipl-player-model';
+import { InventoryReport, StockByBranches } from '../../ipl-player-model';
 import { ChartArea, ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 
@@ -10,27 +10,27 @@ import { Color, Label } from 'ng2-charts';
   styleUrls: ['./inverntory-report.component.scss']
 })
 export class InverntoryReportComponent implements OnInit {
-  inventoryReport:InventoryReport[];
-  inventoryReportDataSet:ChartDataSets[];
+  inventoryReport: InventoryReport[];
+  inventoryReportDataSet: ChartDataSets[];
   inventoryGraphLabels: Label[];
-  inventoryGraphLegend=true;
+  inventoryGraphLegend = true;
   inventoryGraphType: ChartType = 'pie';
-  pieChartColor:Color[];
+  pieChartColor: Color[];
   inventoryGraphOptions: ChartOptions = {
     responsive: true,
     maintainAspectRatio: false,
     tooltips: {
       enabled: false
     },
-    layout:{
-      padding:{
+    layout: {
+      padding: {
         top: 30,
         right: 0,
         bottom: 100,
         left: 200,
       }
     },
-     plugins: {
+    plugins: {
       datalabels: {
         formatter: () => {
           return null;
@@ -41,42 +41,42 @@ export class InverntoryReportComponent implements OnInit {
         color: 'white',
         stretch: 45,
         font: {
-            resizable: true,
-            minSize: 12,
-            maxSize: 18
+          resizable: true,
+          minSize: 12,
+          maxSize: 18
         }
-    }
+      }
     },
     legend: {
       position: "right",
       display: true,
       labels: { fontColor: "black" },
     },
-    
+
   };
 
-  constructor(private inventoryService:PlayerService) { }
+  constructor(private inventoryService: PlayerService) { }
 
   ngOnInit(): void {
     this.getInventoryReport();
   }
-  
-  getInventoryReport(){
-    let productName:string[]=[];
-    let sockInHand:number[]=[];
 
-    this.inventoryService.getInventoryReport().subscribe((inventoryReport:InventoryReport[])=>{
-      this.inventoryReport=inventoryReport;
-      
-      this.inventoryReport.map((inventoryReport:InventoryReport)=>{
+  getInventoryReport() {
+    let productName: string[] = [];
+    let sockInHand: number[] = [];
+
+    this.inventoryService.getInventoryReport().subscribe((inventoryReport: InventoryReport[]) => {
+      this.inventoryReport = inventoryReport;
+
+      this.inventoryReport.map((inventoryReport: InventoryReport) => {
         productName.push(inventoryReport.name);
-        this.inventoryGraphLabels=[...productName];
-        inventoryReport.stock.stock_by_branches.map((stockInHand:StockByBranches)=>{
+        this.inventoryGraphLabels = [...productName];
+        inventoryReport.stock.stock_by_branches.map((stockInHand: StockByBranches) => {
           sockInHand.push(stockInHand.stock_in_hand);
         })
-        this.inventoryReportDataSet=[{data:[...sockInHand]}];
-        this.pieChartColor=[{backgroundColor:['#33567F','#F0CB69','#CCD5E6','#8EC3A7','#5FB7E5']}];
+        this.inventoryReportDataSet = [{ data: [...sockInHand] }];
+        this.pieChartColor = [{ backgroundColor: ['#33567F', '#F0CB69', '#CCD5E6', '#8EC3A7', '#5FB7E5'] }];
       });
-    },(err)=>{});
+    }, (err) => { });
   }
 }
