@@ -71,5 +71,212 @@
             "y_label_second":10
         }
         
+    ],
+    "inventoryReport":[
+        {
+            "id": "90533648-1f4b-4e9a-b479-192585cc4f83",
+            "name": "Apple iPhone 8 Plus (Gold, 256 GB)",
+            "sku": "apple-iphone-8-plus-gold-256-gb",
+            "brand": {
+                "owner": "375fbea2-3eb3-49b4-b087-6f1cd208e9f9",
+                "is_active": true,
+                "updated_at": "2020-11-06T12:25:36.743450Z",
+                "name": "Apple",
+                "logo": null,
+                "description": "",
+                "created_at": "2020-09-14T10:46:21.539530Z",
+                "id": "547ad8ba-c35d-4c89-b74a-f29d5e67286a",
+                "last_modified_by": "a17e9621-4149-4e5b-877e-0b5b873fdd32",
+                "display_name": "Apple",
+                "created_by": "a17e9621-4149-4e5b-877e-0b5b873fdd32"
+            },
+            "is_active": true,
+            "stock": {
+                "committed_stock": 0,
+                "stock_in_nearest_branch": 100,
+                "total_available_stock": 9900,
+                "stock_by_branches": [
+                    {
+                        "stock_by_warehouses": [
+                            {
+                                "committed_stock": 0,
+                                "name": "Pune - Hadapsar",
+                                "id": "a283f475-3969-4016-93dd-20daa2afbb0e",
+                                "available_stock": 9900
+                            }
+                        ],
+                        "stock_in_hand": 9900,
+                        "name": "Pune",
+                        "id": "3d502606-7921-49bd-bb12-006aefb0360d"
+                    }
+                ],
+                "in_stock": true
+            },
+            "in_stock": true
+        },
+        {
+            "id": "905336485678b-4e9a-b479-192585cc4f83",
+            "name": "Apple iPhone 8 Plus (Gold, 256 GB)",
+            "sku": "apple-iphone-8-plus-gold-256-gb",
+            "brand": {
+                "owner": "375fbea2-3eb3-49b4-b087-6f1cd208e9f9",
+                "is_active": true,
+                "updated_at": "2020-11-06T12:25:36.743450Z",
+                "name": "Apple",
+                "logo": null,
+                "description": "",
+                "created_at": "2020-09-14T10:46:21.539530Z",
+                "id": "547ad8ba-c35d-4c89-b74a-f29d5e67286a",
+                "last_modified_by": "a17e9621-4149-4e5b-877e-0b5b873fdd32",
+                "display_name": "Apple",
+                "created_by": "a17e9621-4149-4e5b-877e-0b5b873fdd32"
+            },
+            "is_active": true,
+            "stock": {
+                "committed_stock": 0,
+                "stock_in_nearest_branch": 100,
+                "total_available_stock": 9900,
+                "stock_by_branches": [
+                    {
+                        "stock_by_warehouses": [
+                            {
+                                "committed_stock": 0,
+                                "name": "Pune - Hadapsar",
+                                "id": "a283f475-3961-4016-93dd-20daa2afbb0e",
+                                "available_stock": 9900
+                            }
+                        ],
+                        "stock_in_hand": 5900,
+                        "name": "Mumbai",
+                        "id": "3d502606-7921-49bd-bb12-006aefb0360d"
+                    }
+                ],
+                "in_stock": true
+            },
+            "in_stock": true
+        },
+        {
+            "id": "90533648-1f4b-4e9a-b479-8765",
+            "name": "Apple iPhone 8 Plus (Gold, 256 GB)",
+            "sku": "apple-iphone-8-plus-gold-256-gb",
+            "brand": {
+                "owner": "375fbea2-3eb3-49b4-b087-6f1cd208e9f9",
+                "is_active": true,
+                "updated_at": "2020-11-06T12:25:36.743450Z",
+                "name": "Apple",
+                "logo": null,
+                "description": "",
+                "created_at": "2020-09-14T10:46:21.539530Z",
+                "id": "547ad8ba-c35d-4c89-b74a-f29d5e67286a",
+                "last_modified_by": "a17e9621-4149-4e5b-877e-0b5b873fdd32",
+                "display_name": "Apple",
+                "created_by": "a17e9621-4149-4e5b-877e-0b5b873fdd32"
+            },
+            "is_active": true,
+            "stock": {
+                "committed_stock": 0,
+                "stock_in_nearest_branch": 100,
+                "total_available_stock": 9900,
+                "stock_by_branches": [
+                    {
+                        "stock_by_warehouses": [
+                            {
+                                "committed_stock": 0,
+                                "name": "Pune - Hadapsar",
+                                "id": "a283f475-3966-40126-93dd-20daa2afbb0e",
+                                "available_stock": 9900
+                            }
+                        ],
+                        "stock_in_hand": 6900,
+                        "name": "Delhi",
+                        "id": "3d502606-7921-49bd-bb12-006aefb0360d"
+                    }
+                ],
+                "in_stock": true
+            },
+            "in_stock": true
+        },
+        {
+            "id": "90533648-1f4b-4e9a-b43379-8765",
+            "name": "Apple iPhone 8 Plus (Gold, 256 GB)",
+            "sku": "apple-iphone-8-plus-gold-256-gb",
+            "brand": {
+                "owner": "375fbea2-3eb3-49b4-b087-6f1cd208e9f9",
+                "is_active": true,
+                "updated_at": "2020-11-06T12:25:36.743450Z",
+                "name": "Apple",
+                "logo": null,
+                "description": "",
+                "created_at": "2020-09-14T10:46:21.539530Z",
+                "id": "547ad8ba-c35d-4c89-b74a-f29d5e67286a",
+                "last_modified_by": "a17e9621-4149-4e5b-877e-0b5b873fdd32",
+                "display_name": "Apple",
+                "created_by": "a17e9621-4149-4e5b-877e-0b5b873fdd32"
+            },
+            "is_active": true,
+            "stock": {
+                "committed_stock": 0,
+                "stock_in_nearest_branch": 100,
+                "total_available_stock": 9900,
+                "stock_by_branches": [
+                    {
+                        "stock_by_warehouses": [
+                            {
+                                "committed_stock": 0,
+                                "name": "Pune - Hadapsar",
+                                "id": "a283f475-3966-40126-93dd-20daa2876afbb0e",
+                                "available_stock": 9900
+                            }
+                        ],
+                        "stock_in_hand": 7900,
+                        "name": "Delhi",
+                        "id": "3d502606-7921-49bd-bb12ss-006aefb0360d"
+                    }
+                ],
+                "in_stock": true
+            },
+            "in_stock": true
+        },
+        {
+            "id": "90533648-1f4b-4e9a-b46679-8765",
+            "name": "Apple iPhone 8 Plus (Gold, 256 GB)",
+            "sku": "apple-iphone-8-plus-gold-256-gb",
+            "brand": {
+                "owner": "375fbea2-3eb3-49b4-b087-6f1cd208e9f9",
+                "is_active": true,
+                "updated_at": "2020-11-06T12:25:36.743450Z",
+                "name": "Apple",
+                "logo": null,
+                "description": "",
+                "created_at": "2020-09-14T10:46:21.539530Z",
+                "id": "547ad8ba-c35d-4c89-b74a-f29d5e67286a",
+                "last_modified_by": "a17e9621-4149-4e5b-877e-0b5b873fdd32",
+                "display_name": "Apple",
+                "created_by": "a17e9621-4149-4e5b-877e-0b5b873fdd32"
+            },
+            "is_active": true,
+            "stock": {
+                "committed_stock": 0,
+                "stock_in_nearest_branch": 100,
+                "total_available_stock": 9900,
+                "stock_by_branches": [
+                    {
+                        "stock_by_warehouses": [
+                            {
+                                "committed_stock": 0,
+                                "name": "Pune - Hadapsar",
+                                "id": "a283f475-3966-401ss26-93dd-20daa2afbb0e",
+                                "available_stock": 9900
+                            }
+                        ],
+                        "stock_in_hand": 8000,
+                        "name": "Delhi",
+                        "id": "3d502606-792ss1-49bd-bb12-006aefb0360d"
+                    }
+                ],
+                "in_stock": true
+            },
+            "in_stock": true
+        }
     ]
 }

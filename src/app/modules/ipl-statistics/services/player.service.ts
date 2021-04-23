@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Player } from '../ipl-player-model';
+import { InventoryReport, Player } from '../ipl-player-model';
 
 @Injectable()
 export class PlayerService {
@@ -14,5 +14,9 @@ export class PlayerService {
 
    getPlayersStats():Observable<Player[]>{
     return this.http.get<Player[]>(`${this.baseUrl}/playerStatistics`);
+   }
+
+   getInventoryReport():Observable<InventoryReport[]>{
+     return this.http.get<InventoryReport[]>(`${this.baseUrl}/inventoryReport`);
    }
 }
