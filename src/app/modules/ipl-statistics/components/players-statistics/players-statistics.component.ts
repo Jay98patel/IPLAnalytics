@@ -6,7 +6,7 @@ import { Color, Label } from 'ng2-charts';
 import { HttpErrorResponse } from '@angular/common/http';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { GraphDynamicThemingService } from '../../services/graph-dynamic-theming.service';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import * as outLabels from "chartjs-plugin-piechart-outlabels";
 
 /**
  * graphLengend :- show legend below the chart.
@@ -44,7 +44,7 @@ export class PlayersStatisticsComponent implements OnInit {
   graphLegend = false;
   pieChartLegend=true;
 
-  barChartPlugins = [pluginDataLabels];
+  barChartPlugins = [pluginDataLabels,outLabels];
 
   graphOptions: ChartOptions = {
     responsive: true,
@@ -53,16 +53,27 @@ export class PlayersStatisticsComponent implements OnInit {
     },
     plugins: {
       datalabels: {
-        formatter: () => {
-          return null;
-        },
-      }
+        // formatter: () => {
+        //   return null;
+        // },
+      },
+      outlabels: {
+        text: '%l',
+        color: 'white',
+        stretch: 45,
+        font: {
+            resizable: true,
+            minSize: 12,
+            maxSize: 18
+        }
+    }
     },
     legend: {
       position: "bottom",
       display: true,
       labels: { fontColor: "black" },
-    }
+    },
+    
   };
 
   constructor(private playerService: PlayerService, private themeService: GraphDynamicThemingService) { }
@@ -100,7 +111,7 @@ export class PlayersStatisticsComponent implements OnInit {
         /*Pie Chart*/
         pieChartOptions=[{ data: [...playerScores], label: 'Players Runs'}];
         this.pieChartDataSet=pieChartOptions;
-        this.pieChartColor=[{backgroundColor:['#33567F','#F0CB69','#CCD5E6','#8EC3A7','#5FB7E5']}]
+        this.pieChartColor=[{backgroundColor:['#33567F','#F0CB69','#CCD5E6','#8EC3A7','#5FB7E5']}];
         
         /*Other Chart*/
         this.graphDataSet = [{ data: [...playerScores], label: 'Players Runs' },
