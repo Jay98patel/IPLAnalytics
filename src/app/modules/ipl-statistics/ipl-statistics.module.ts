@@ -9,10 +9,11 @@ import { ChartsModule } from 'ng2-charts';
 import { PlayerService } from './services/player.service';
 import { GraphComponent } from './components/graph/graph.component';
 import { GraphDynamicThemingService } from './services/graph-dynamic-theming.service';
+import { InverntoryReportComponent } from './components/inverntory-report/inverntory-report.component';
 
 
 @NgModule({
-  declarations: [IplStatisticsComponent,PlayersStatisticsComponent, GraphComponent],
+  declarations: [IplStatisticsComponent,PlayersStatisticsComponent, GraphComponent, InverntoryReportComponent],
   imports: [
     CommonModule,
     IplStatisticsRoutingModule,
