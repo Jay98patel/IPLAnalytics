@@ -75,7 +75,7 @@
     "inventoryReport":[
         {
             "id": "90533648-1f4b-4e9a-b479-192585cc4f83",
-            "name": "Apple iPhone 8 Plus (Gold, 256 GB)",
+            "name": "Microsoft",
             "sku": "apple-iphone-8-plus-gold-256-gb",
             "brand": {
                 "owner": "375fbea2-3eb3-49b4-b087-6f1cd208e9f9",
@@ -157,7 +157,7 @@
         },
         {
             "id": "90533648-1f4b-4e9a-b479-8765",
-            "name": "Apple iPhone 8 Plus (Gold, 256 GB)",
+            "name": "Samsung Plus (Gold, 586 GB)",
             "sku": "apple-iphone-8-plus-gold-256-gb",
             "brand": {
                 "owner": "375fbea2-3eb3-49b4-b087-6f1cd208e9f9",
@@ -198,7 +198,7 @@
         },
         {
             "id": "90533648-1f4b-4e9a-b43379-8765",
-            "name": "Apple iPhone 8 Plus (Gold, 256 GB)",
+            "name": "ASUS ROG 5 Ultimate",
             "sku": "apple-iphone-8-plus-gold-256-gb",
             "brand": {
                 "owner": "375fbea2-3eb3-49b4-b087-6f1cd208e9f9",
@@ -239,7 +239,7 @@
         },
         {
             "id": "90533648-1f4b-4e9a-b46679-8765",
-            "name": "Apple iPhone 8 Plus (Gold, 256 GB)",
+            "name": "HTC",
             "sku": "apple-iphone-8-plus-gold-256-gb",
             "brand": {
                 "owner": "375fbea2-3eb3-49b4-b087-6f1cd208e9f9",

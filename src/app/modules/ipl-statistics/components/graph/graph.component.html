@@ -1,6 +1,8 @@
-<div *ngIf="barDataSet">
-    <canvas baseChart [datasets]="barDataSet" [labels]="graphLabels" [options]="graphOptions" [legend]="graphLegend"
-        [chartType]="chartType"  [plugins]="barChartPlugins" (chartHover)="chartHovered($event)"
-        (chartClick)="chartClicked($event)" [colors]="graphColor">
-    </canvas>
+<div class="w-100 h-100">
+    <div *ngIf="barDataSet" class="w-100 h-100">
+        <canvas baseChart [datasets]="barDataSet" [labels]="graphLabels" [options]="graphOptions" [legend]="graphLegend"
+            [chartType]="chartType" [plugins]="barChartPlugins" (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)" [colors]="graphColor">
+        </canvas>
+    </div>
 </div>

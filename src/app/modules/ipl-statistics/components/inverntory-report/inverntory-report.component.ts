@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayerService } from '../../services/player.service';
-import { InventoryReport } from '../../ipl-player-model';
+import { InventoryReport,StockByBranches } from '../../ipl-player-model';
+import { ChartArea, ChartDataSets, ChartOptions, ChartType } from 'chart.js';
+import { Color, Label } from 'ng2-charts';
 
 @Component({
   selector: 'app-inverntory-report',
@@ -9,6 +11,49 @@ import { InventoryReport } from '../../ipl-player-model';
 })
 export class InverntoryReportComponent implements OnInit {
   inventoryReport:InventoryReport[];
+  inventoryReportDataSet:ChartDataSets[];
+  inventoryGraphLabels: Label[];
+  inventoryGraphLegend=true;
+  inventoryGraphType: ChartType = 'pie';
+  pieChartColor:Color[];
+  inventoryGraphOptions: ChartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    tooltips: {
+      enabled: false
+    },
+    layout:{
+      // padding:{
+      //   top: 30,
+      //   right: 0,
+      //   bottom: 100,
+      //   left: 200,
+      // }
+    },
+     plugins: {
+      datalabels: {
+        formatter: () => {
+          return null;
+        },
+      },
+      outlabels: {
+        text: '%l',
+        color: 'white',
+        stretch: 45,
+        font: {
+            resizable: true,
+            minSize: 12,
+            maxSize: 18
+        }
+    }
+    },
+    legend: {
+      position: "right",
+      display: true,
+      labels: { fontColor: "black" },
+    },
+    
+  };
 
   constructor(private inventoryService:PlayerService) { }
 
@@ -17,11 +62,21 @@ export class InverntoryReportComponent implements OnInit {
   }
   
   getInventoryReport(){
+    let productName:string[]=[];
+    let sockInHand:number[]=[];
+
     this.inventoryService.getInventoryReport().subscribe((inventoryReport:InventoryReport[])=>{
       this.inventoryReport=inventoryReport;
-      console.log(this.inventoryReport)
-    },(err)=>{})
-    
+      
+      this.inventoryReport.map((inventoryReport:InventoryReport)=>{
+        productName.push(inventoryReport.name);
+        this.inventoryGraphLabels=[...productName];
+        inventoryReport.stock.stock_by_branches.map((stockInHand:StockByBranches)=>{
+          sockInHand.push(stockInHand.stock_in_hand);
+        })
+        this.inventoryReportDataSet=[{data:[...sockInHand]}];
+        this.pieChartColor=[{backgroundColor:['#33567F','#F0CB69','#CCD5E6','#8EC3A7','#5FB7E5']}];
+      });
+    },(err)=>{});
   }
-
 }
