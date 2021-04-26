@@ -51,7 +51,9 @@ export class InverntoryReportComponent implements OnInit {
     legend: {
       position: "right",
       display: true,
-      labels: { fontColor: "black" },
+      labels: {
+         fontColor: "black",
+        },
     },
 
   };
