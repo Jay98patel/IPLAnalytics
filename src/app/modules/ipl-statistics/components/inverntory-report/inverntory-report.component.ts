@@ -18,8 +18,10 @@ export class InverntoryReportComponent implements OnInit {
   inventoryGraphType: ChartType = 'pie';
   pieChartColor: Color[];
   
-
   inventoryGraphOptions: ChartOptions = {
+    onResize(this){
+      this.canvas.height=200
+    },
     responsive: true,
     maintainAspectRatio: false,
     devicePixelRatio:2,
@@ -30,8 +32,8 @@ export class InverntoryReportComponent implements OnInit {
       padding: {
         top: 50,
         right: 10,
-        bottom: 100,
-        left: 10,
+        bottom: 150,
+        left: 100,
       }
     },
     plugins: {
@@ -43,7 +45,7 @@ export class InverntoryReportComponent implements OnInit {
       outlabels: {
         text: '%p %l',
         color: 'white',
-        stretch: 50,
+        stretch: 20,
         font: {
           resizable: true,
           minSize: 12,
@@ -54,6 +56,7 @@ export class InverntoryReportComponent implements OnInit {
     legend: {
       position: "right",
       display: true,
+      align:"start",
       labels: {
         boxWidth: 12,
         padding:5,
@@ -77,7 +80,7 @@ export class InverntoryReportComponent implements OnInit {
     this.inventoryService.getInventoryReport().subscribe((inventoryReport: InventoryReport[]) => {
       this.inventoryReport = inventoryReport;
 
-      this.inventoryReport.slice(0,5).map((inventoryReport: InventoryReport) => {
+      this.inventoryReport.map((inventoryReport: InventoryReport) => {
         productName.push(inventoryReport.name);
         this.inventoryGraphLabels = [...productName];
         sockInHand.push(inventoryReport.stock.total_available_stock);
