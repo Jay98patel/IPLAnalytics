@@ -37,7 +37,7 @@ export class InverntoryReportComponent implements OnInit {
         },
       },
       outlabels: {
-        text: '%l',
+        text: '%p %l',
         color: 'white',
         stretch: 45,
         font: {
