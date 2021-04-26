@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayerService } from '../../services/player.service';
 import { InventoryReport, StockByBranches } from '../../ipl-player-model';
-import { ChartArea, ChartDataSets, ChartOptions, ChartType } from 'chart.js';
+import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 
 @Component({
@@ -17,18 +17,21 @@ export class InverntoryReportComponent implements OnInit {
   inventoryGraphLegend = true;
   inventoryGraphType: ChartType = 'pie';
   pieChartColor: Color[];
+  
+
   inventoryGraphOptions: ChartOptions = {
     responsive: true,
     maintainAspectRatio: false,
+    devicePixelRatio:2,
     tooltips: {
       enabled: true
     },
     layout: {
       padding: {
-        top: 30,
-        right: 0,
+        top: 50,
+        right: 10,
         bottom: 100,
-        left: 200,
+        left: 10,
       }
     },
     plugins: {
@@ -40,7 +43,7 @@ export class InverntoryReportComponent implements OnInit {
       outlabels: {
         text: '%p %l',
         color: 'white',
-        stretch: 45,
+        stretch: 50,
         font: {
           resizable: true,
           minSize: 12,
@@ -52,11 +55,13 @@ export class InverntoryReportComponent implements OnInit {
       position: "right",
       display: true,
       labels: {
+        boxWidth: 12,
+        padding:5,
          fontColor: "black",
         },
     },
 
-  };
+  };  
 
   constructor(private inventoryService: PlayerService) { }
 
@@ -72,7 +77,7 @@ export class InverntoryReportComponent implements OnInit {
     this.inventoryService.getInventoryReport().subscribe((inventoryReport: InventoryReport[]) => {
       this.inventoryReport = inventoryReport;
 
-      this.inventoryReport.map((inventoryReport: InventoryReport) => {
+      this.inventoryReport.slice(0,5).map((inventoryReport: InventoryReport) => {
         productName.push(inventoryReport.name);
         this.inventoryGraphLabels = [...productName];
         sockInHand.push(inventoryReport.stock.total_available_stock);
