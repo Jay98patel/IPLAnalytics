@@ -68,7 +68,7 @@ export class InverntoryReportComponent implements OnInit {
     this.inventoryService.getInventoryReport().subscribe((inventoryReport: InventoryReport[]) => {
       this.inventoryReport = inventoryReport;
 
-      this.inventoryReport.map((inventoryReport: InventoryReport) => {
+      this.inventoryReport.slice(0,5).map((inventoryReport: InventoryReport) => {
         productName.push(inventoryReport.name);
         this.inventoryGraphLabels = [...productName];
         inventoryReport.stock.stock_by_branches.map((stockInHand: StockByBranches) => {
