@@ -12,6 +12,7 @@ import { Color, Label } from 'ng2-charts';
 export class InverntoryReportComponent implements OnInit {
   inventoryReport: InventoryReport[];
   inventoryReportDataSet: ChartDataSets[];
+  topInventoryDataSet: ChartDataSets[];
   inventoryGraphLabels: Label[];
   inventoryGraphLegend = true;
   inventoryGraphType: ChartType = 'pie';
@@ -20,7 +21,7 @@ export class InverntoryReportComponent implements OnInit {
     responsive: true,
     maintainAspectRatio: false,
     tooltips: {
-      enabled: false
+      enabled: true
     },
     layout: {
       padding: {
@@ -64,16 +65,21 @@ export class InverntoryReportComponent implements OnInit {
   getInventoryReport() {
     let productName: string[] = [];
     let sockInHand: number[] = [];
+    let topProductWithInventoryAge:number[]=[];
 
     this.inventoryService.getInventoryReport().subscribe((inventoryReport: InventoryReport[]) => {
       this.inventoryReport = inventoryReport;
 
-      this.inventoryReport.slice(0,5).map((inventoryReport: InventoryReport) => {
+      this.inventoryReport.map((inventoryReport: InventoryReport) => {
         productName.push(inventoryReport.name);
         this.inventoryGraphLabels = [...productName];
+        sockInHand.push(inventoryReport.stock.total_available_stock);
+
         inventoryReport.stock.stock_by_branches.map((stockInHand: StockByBranches) => {
-          sockInHand.push(stockInHand.stock_in_hand);
-        })
+          topProductWithInventoryAge.push(stockInHand.stock_in_hand);
+        });
+
+        this.topInventoryDataSet=[{data:[...topProductWithInventoryAge]}]
         this.inventoryReportDataSet = [{ data: [...sockInHand] }];
         this.pieChartColor = [{ backgroundColor: ['#33567F', '#F0CB69', '#CCD5E6', '#8EC3A7', '#5FB7E5'] }];
       });

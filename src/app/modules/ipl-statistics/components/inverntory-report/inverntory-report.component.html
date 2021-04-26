@@ -34,7 +34,7 @@
                 Total Inventory in Warehouse
             </div>
             <div class="card-body">
-                
+
             </div>
         </div>
         <div class="card">
@@ -42,7 +42,9 @@
                 Top Products with inventory age more than 180 days
             </div>
             <div class="card-body">
-
+                <app-graph baseChart [barDataSet]="topInventoryDataSet" [graphLabels]="inventoryGraphLabels" 
+                        [graphOptions]="inventoryGraphOptions" [graphLegend]="inventoryGraphLegend" [chartType]="inventoryGraphType"
+                        [graphColor]="pieChartColor"></app-graph>
             </div>
         </div>
     </div>
