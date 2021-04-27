@@ -1,5 +1,5 @@
     <div *ngIf="barDataSet" class="h-100 w-100">
-        <canvas baseChart height="400" width="400" [datasets]="barDataSet"  [labels]="graphLabels" [options]="graphOptions" [legend]="graphLegend"
+        <canvas baseChart height="400" width="300" [datasets]="barDataSet"  [labels]="graphLabels" [options]="graphOptions" [legend]="graphLegend"
             [chartType]="chartType" [plugins]="barChartPlugins" (chartHover)="chartHovered($event)"
             (chartClick)="chartClicked($event)" [colors]="graphColor">
         </canvas>

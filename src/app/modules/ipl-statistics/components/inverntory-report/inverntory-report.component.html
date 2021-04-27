@@ -21,7 +21,7 @@
                 </div>
                 <div *ngIf="customLegends">
                     <p class="mb-0" *ngFor="let customLegend of customLegends;let i=index">
-                        <b (click)="toggleLegends(i)">i</b>
+                        <b (click)="toggleLegends(i)" class="box"></b>
                         {{customLegend}}
                     </p >
                 </div>
