@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { PlayerService } from '../../services/player.service';
 import { InventoryReport, StockByBranches } from '../../ipl-player-model';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
-import { Color, Label } from 'ng2-charts';
+import { Color, Label,monkeyPatchChartJsLegend ,monkeyPatchChartJsTooltip} from 'ng2-charts';
 import * as Chart from 'chart.js';
 
 @Component({
@@ -11,7 +11,7 @@ import * as Chart from 'chart.js';
   styleUrls: ['./inverntory-report.component.scss']
 })
 export class InverntoryReportComponent implements OnInit {
-
+  customLegends:string[]=[];
   inventoryReport: InventoryReport[];
   inventoryReportDataSet: ChartDataSets[];
   topInventoryDataSet: ChartDataSets[];
@@ -36,15 +36,16 @@ export class InverntoryReportComponent implements OnInit {
     layout: {
       padding: {
         top: 50,
-        right: 0,
+        right: 50,
         bottom: 150,
         left: 0,
       }
     },
     plugins: {
       beforeInit: function (chart, options) {
+        console.log(options)
         chart.legend.afterFit = function () {
-          this.width += 500; 
+          this.heigth +=50
         };
       },
       datalabels: {
@@ -65,11 +66,11 @@ export class InverntoryReportComponent implements OnInit {
           minSize: 12,
           maxSize: 18,
         }
-      }
+      },
     },
     legend: {
       position: "right",
-      display: true,
+      display: false,
       align: "start",
       labels: {
         boxWidth: 12,
@@ -77,13 +78,22 @@ export class InverntoryReportComponent implements OnInit {
         fontColor: "black"
       },
     },
-
+    legendCallback:this.buildCustomLegend
   };
 
-  constructor(private inventoryService: PlayerService) { }
+  constructor(private inventoryService: PlayerService) {
+  }
 
   ngOnInit(): void {
     this.getInventoryReport();
+  }
+
+  buildCustomLegend(){
+    console.log(this.customLegends.join(''))
+    return this.customLegends.join('')
+  }
+
+  toggleLegends(i){
   }
 
   getInventoryReport() {
@@ -93,6 +103,7 @@ export class InverntoryReportComponent implements OnInit {
     let LegendsLabels: string[] = [];
     let otherProductName:string[]=[]
     let otherValue:number;
+    this.pieChartColor = [{ backgroundColor: ['#33567F', '#F0CB69', '#CCD5E6', '#8EC3A7', '#5FB7E5'] }];
     this.inventoryService.getInventoryReport().subscribe((inventoryReport: InventoryReport[]) => {
       
       /**5 data will be in pie chart and other data are splice in this method */
@@ -103,25 +114,25 @@ export class InverntoryReportComponent implements OnInit {
         });
       });
       /**5 data will be in pie chart and other data are splice in this method */
-
-      otherValue=this.otherStockInHand.reduce((a,b):number=>a+b);              /*done summation of other values*/
-
+      otherValue=this.otherStockInHand.reduce((a,b):number=>a+b);           /*done summation of other values*/
+      
       this.inventoryReport = inventoryReport.slice(0,5);                       /**loop will run only till 5 */
       
       this.inventoryReport.map((inventoryReport: InventoryReport) => {
+        this.customLegends.push(inventoryReport.name)                          /**adding custom legends */
+
         productName.push(this.textWrap(inventoryReport.name));                 /**splice the text if more then 10 characters the ... will come */
         LegendsLabels=productName.slice(0,5);                                  /**this data will visible in piechart */
         this.inventoryGraphLabels = [...LegendsLabels,'others'];
-
+        
         sockInHand.push(inventoryReport.stock.total_available_stock);
-
+        
         inventoryReport.stock.stock_by_branches.map((stockInHand: StockByBranches) => { /**this is for first pie chart */
           topProductWithInventoryAge.push(stockInHand.stock_in_hand);
         });
-
+        
         this.topInventoryDataSet = [{ data: [...topProductWithInventoryAge,otherValue] }];
         this.inventoryReportDataSet = [{ data: [...sockInHand,otherValue] }];
-        this.pieChartColor = [{ backgroundColor: ['#33567F', '#F0CB69', '#CCD5E6', '#8EC3A7', '#5FB7E5'] }];
       });
     }, (err) => { });
   }

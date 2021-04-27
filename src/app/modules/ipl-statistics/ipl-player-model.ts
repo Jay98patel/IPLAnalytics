@@ -51,4 +51,9 @@ export interface StockByWarehouse{
     available_stock: number
 }
 
+export interface CustomLegends{
+    name:string;
+    pieChartColor:string
+}
+
 export type Theme = 'light' | 'dark';
