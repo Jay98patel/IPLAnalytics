@@ -70,7 +70,7 @@ export class InverntoryReportComponent implements OnInit {
     },
     legend: {
       position: "right",
-      display: true,
+      display: false,
       align: "start",
       labels: {
         boxWidth: 12,
@@ -138,6 +138,6 @@ export class InverntoryReportComponent implements OnInit {
   }
 
   textWrap(labelStr: string): string {
-    return labelStr.length > 15 ? labelStr.slice(0,15) + '...' : labelStr;
+    return labelStr.length > 18 ? labelStr.slice(0,18) + '...' : labelStr;
   }
 }
