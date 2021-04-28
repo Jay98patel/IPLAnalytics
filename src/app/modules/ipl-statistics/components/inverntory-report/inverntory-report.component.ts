@@ -29,11 +29,6 @@ export class InverntoryReportComponent implements OnInit {
     devicePixelRatio: 2,
     tooltips: {
       enabled: true,
-      callbacks: {
-        afterBody: function (item, data) {
-          return this.inventoryGraphLabels;
-        }
-      }
     },
     layout: {
       padding: {
@@ -75,7 +70,6 @@ export class InverntoryReportComponent implements OnInit {
         fontColor: "black"
       },
     },
-    legendCallback: this.buildCustomLegend
   };
 
   constructor(private inventoryService: PlayerService) {
@@ -83,14 +77,6 @@ export class InverntoryReportComponent implements OnInit {
 
   ngOnInit(): void {
     this.getInventoryReport();
-  }
-
-  buildCustomLegend() {
-    console.log(this.customLegends.join(''))
-    return this.customLegends.join('')
-  }
-
-  toggleLegends(i) {
   }
 
   getInventoryReport() {
@@ -111,15 +97,15 @@ export class InverntoryReportComponent implements OnInit {
         });
       });
       /**5 data will be in pie chart and other data are splice in this method */
-      otherValue = this.otherStockInHand.reduce((a, b): number => a + b);           /*done summation of other values*/
+      otherValue = this.otherStockInHand.reduce((a, b): number => a + b);              /*done summation of other values*/
 
-      this.inventoryReport = inventoryReport.slice(0, 5);                       /**loop will run only till 5 */
+      this.inventoryReport = inventoryReport.slice(0, 5);                              /**loop will run only till 5 */
 
       this.inventoryReport.map((inventoryReport: InventoryReport) => {
-        this.customLegends.push(inventoryReport.name)                          /**adding custom legends */
+        this.customLegends.push(inventoryReport.name)                                  /**adding custom legends */
 
-        productName.push(this.textWrap(inventoryReport.name));                 /**splice the text if more then 10 characters the ... will come */
-        LegendsLabels = productName.slice(0, 5);                                  /**this data will visible in piechart */
+        productName.push(this.textWrap(inventoryReport.name));                         /**splice the text if more then 10 characters the ... will come */
+        LegendsLabels = productName.slice(0, 5);                                       /**this data will visible in piechart */
         this.inventoryGraphLabels = [...LegendsLabels, 'others'];
 
         sockInHand.push(inventoryReport.stock.total_available_stock);

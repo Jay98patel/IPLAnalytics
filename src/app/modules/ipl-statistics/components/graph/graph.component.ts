@@ -21,18 +21,18 @@ export class GraphComponent implements OnInit {
   @Input() barChartPlugins = [pluginDataLabels];
   @Output() chartClick=new EventEmitter<{ event: MouseEvent, active: {}[] }>();
   @Output() chartHover=new EventEmitter<{ event: MouseEvent, active: {}[] }>();
-  
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
   chartClicked({ event, active }: { event: MouseEvent, active: {}[] }){
-    this.chartClick.emit({event,active})
+    this.chartClick.emit({event,active});
   }
 
   chartHovered({ event, active }: { event: MouseEvent, active: {}[] }){
-    this.chartHover.emit({event,active})
+    this.chartHover.emit({event,active});
   }
 
 
