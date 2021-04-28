@@ -4,3 +4,6 @@
             (chartClick)="chartClicked($event)" [colors]="graphColor">
         </canvas>
     </div>
+    <div *ngIf="!barDataSet">
+        No Records Available
+    </div>
