@@ -452,7 +452,7 @@
         {
             "id": 2,
             "name": "Garmin",
-            "sales_percent": 7.67
+            "sales_percent": 37.67
         },
         {
             "id": 3,
@@ -462,6 +462,36 @@
         {
             "id": 4,
             "name": "Saucony",
+            "sales_percent": 13.42
+        },
+        {
+            "id": 5,
+            "name": "Puma",
+            "sales_percent": 8.72
+        },
+        {
+            "id": 6,
+            "name": "Woodland",
+            "sales_percent": 10.72
+        },
+        {
+            "id": 7,
+            "name": "RedChief",
+            "sales_percent": 1.72
+        },
+        {
+            "id": 8,
+            "name": "Reebok",
+            "sales_percent": 2.72
+        },
+        {
+            "id": 9,
+            "name": "Sparks",
+            "sales_percent": 8.72
+        },
+        {
+            "id": 10,
+            "name": "Samsung",
             "sales_percent": 5.72
         }
     ]

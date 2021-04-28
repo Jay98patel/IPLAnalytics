@@ -16,14 +16,14 @@ export class SalesTeamPerformanceComponent implements OnInit {
   salesGraphType: ChartType ='pie';
   pieChartColor:Color[];
   heigth:number=400;
-  width:number=300;
+  width:number=400;
 
   salesGraphOptions:ChartOptions={
     responsive: true,
     maintainAspectRatio: false,
     layout: {
       padding: {
-        top: 50,
+        top: 100,
         right: 10,
         bottom: 150,
         left: 0,
@@ -44,9 +44,20 @@ export class SalesTeamPerformanceComponent implements OnInit {
         formatter: () => {
           return null;
         },
+      },
+      outlabels: {
+        backgroundColor: "transparent",
+        color: 'black',
+        font: {
+          resizable: true,
+          minSize: 12,
+          maxSize: 18,
+          weight:'normal'
+        }
       }
     }
   }
+
   constructor(private reportService:PlayerService) { }
 
   ngOnInit(): void {
@@ -54,16 +65,26 @@ export class SalesTeamPerformanceComponent implements OnInit {
   }
 
   getSalesTeamReport(){
-    let sale_percent:number[]=[];
     let productName:string[]=[];
-    this.reportService.getSalesByBrandReport().subscribe((salesByBrands:SalesByBrands[])=>{
-      salesByBrands.map((sales:SalesByBrands)=>{
+    let other_Sale_percent:number[]=[];
+    let salePercentToBeShwon:number[]=[];
+    let otherSaleValue:number;
 
-        productName.push(sales.name);
-        this.salesGraphLabels=[...productName];
-        sale_percent.push(sales.sales_percent);
-        this.salesDataSet=[{data:[...sale_percent]}]
-      })
+    this.pieChartColor = [{ backgroundColor: ['#33567F', '#F0CB69', '#CCD5E6', '#8EC3A7', '#5FB7E5'] }];
+    this.reportService.getSalesByBrandReport().subscribe((salesByBrands:SalesByBrands[])=>{
+      
+      salesByBrands.slice(0,5).map((productNames)=>{
+        productName.push(productNames.name);
+        salePercentToBeShwon.push(productNames.sales_percent);
+      });
+      this.salesGraphLabels=[...productName,'Other'];
+
+      salesByBrands.slice(5,salesByBrands.length).map((sale:SalesByBrands)=>{
+        other_Sale_percent.push(sale.sales_percent);
+        otherSaleValue= other_Sale_percent.reduce((a,b):number=>a+b);
+      });
+      
+      this.salesDataSet=[{data:[...salePercentToBeShwon,otherSaleValue]}];
     });
   }
 
