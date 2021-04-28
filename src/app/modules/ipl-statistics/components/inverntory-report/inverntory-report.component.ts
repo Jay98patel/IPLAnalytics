@@ -102,7 +102,7 @@ export class InverntoryReportComponent implements OnInit {
       this.inventoryReport = inventoryReport.slice(0, 5);                              /**loop will run only till 5 */
 
       this.inventoryReport.map((inventoryReport: InventoryReport) => {
-        this.customLegends.push(inventoryReport.name)                                  /**adding custom legends */
+        this.customLegends.push(inventoryReport.name);                                 /**adding custom legends */
 
         productName.push(this.textWrap(inventoryReport.name));                         /**splice the text if more then 10 characters the ... will come */
         LegendsLabels = productName.slice(0, 5);                                       /**this data will visible in piechart */
