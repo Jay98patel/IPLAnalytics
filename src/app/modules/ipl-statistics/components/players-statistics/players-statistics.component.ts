@@ -42,11 +42,11 @@ export class PlayersStatisticsComponent implements OnInit {
   polarArea: ChartType = 'polarArea';
   heigth: number = 400;
   width: number = 300;
-  
+
   graphLegend = false;
   pieChartLegend=true;
 
-  barChartPlugins = [pluginDataLabels,outLabels];
+  barChartPlugins = [pluginDataLabels];
 
   graphOptions: ChartOptions = {
     responsive: true,

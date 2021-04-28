@@ -3,6 +3,7 @@ import { PlayerService } from '../../services/player.service';
 import { InventoryReport, StockByBranches } from '../../ipl-player-model';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, Label, } from 'ng2-charts';
+import 'chartjs-plugin-labels';
 
 @Component({
   selector: 'app-inverntory-report',
@@ -39,24 +40,20 @@ export class InverntoryReportComponent implements OnInit {
       }
     },
     plugins: {
+      labels: [
+        {
+          render: 'label',
+          position: 'outside',
+        },
+        {
+          render: 'percentage',
+          fontColor:['#fff','#fff','#fff','#fff','#fff','#fff']
+        }
+      ],
       datalabels: {
         formatter: () => {
           return null;
         },
-      },
-      outlabels: {
-        text: '%p %l',
-        color: 'black',
-        stretch: 20,
-        backgroundColor: "transparent",
-        padding: {
-          right: 30,
-        },
-        font: {
-          resizable: true,
-          minSize: 12,
-          maxSize: 18,
-        }
       },
 
     },
