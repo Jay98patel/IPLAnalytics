@@ -10,10 +10,11 @@ import { PlayerService } from './services/player.service';
 import { GraphComponent } from './components/graph/graph.component';
 import { GraphDynamicThemingService } from './services/graph-dynamic-theming.service';
 import { InverntoryReportComponent } from './components/inverntory-report/inverntory-report.component';
+import { SalesTeamPerformanceComponent } from './components/sales-team-performance/sales-team-performance.component';
 
 
 @NgModule({
-  declarations: [IplStatisticsComponent,PlayersStatisticsComponent, GraphComponent, InverntoryReportComponent],
+  declarations: [IplStatisticsComponent,PlayersStatisticsComponent, GraphComponent, InverntoryReportComponent, SalesTeamPerformanceComponent],
   imports: [
     CommonModule,
     IplStatisticsRoutingModule,

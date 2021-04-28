@@ -7,6 +7,9 @@
         <div class="pl-3">
             <button class="btn analytics-btn">Analytics</button>
         </div>
+        <div class="pl-3">
+            <button class="btn analytics-btn text-white" routerLink="../salesTeam">Sales By Brands</button>
+        </div>
     </div>
     <div class="d-flex justify-content-between pt-4">
         <div class="card">
@@ -56,7 +59,9 @@
                 Top Products with inventory age between 90 to 180 days
             </div>
             <div class="card-body">
-
+                <app-graph baseChart [barDataSet]="topInventoryDataSet" [graphLabels]="inventoryGraphLabels"
+                    [graphOptions]="inventoryGraphOptions" [graphLegend]="inventoryGraphLegend"
+                    [chartType]="inventoryGraphType" [graphColor]="pieChartColor" [height]="heigth" [width]="width"></app-graph>
             </div>
         </div>
         <div class="card">

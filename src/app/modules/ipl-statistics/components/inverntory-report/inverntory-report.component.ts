@@ -72,7 +72,7 @@ export class InverntoryReportComponent implements OnInit {
     },
   };
 
-  constructor(private inventoryService: PlayerService) {
+  constructor(private reportService: PlayerService) {
   }
 
   ngOnInit(): void {
@@ -87,7 +87,7 @@ export class InverntoryReportComponent implements OnInit {
     let otherProductName: string[] = []
     let otherValue: number;
     this.pieChartColor = [{ backgroundColor: ['#33567F', '#F0CB69', '#CCD5E6', '#8EC3A7', '#5FB7E5'] }];
-    this.inventoryService.getInventoryReport().subscribe((inventoryReport: InventoryReport[]) => {
+    this.reportService.getInventoryReport().subscribe((inventoryReport: InventoryReport[]) => {
 
       /**5 data will be in pie chart and other data are splice in this method */
       inventoryReport.slice(5, inventoryReport.length).map((inventrryName: InventoryReport) => {

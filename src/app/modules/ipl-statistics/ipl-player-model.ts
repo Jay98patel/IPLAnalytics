@@ -1,3 +1,4 @@
+
 export interface Player {
     id: number,
     x_label: string,
@@ -54,6 +55,12 @@ export interface StockByWarehouse{
 export interface CustomLegends{
     name:string;
     pieChartColor:string
+}
+
+export interface SalesByBrands{
+    id:number;
+    name:string;
+    sales_percent:number;
 }
 
 export type Theme = 'light' | 'dark';

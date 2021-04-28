@@ -143,10 +143,10 @@
                                 "committed_stock": 0,
                                 "name": "Pune - Hadapsar",
                                 "id": "a283f475-3961-4016-93dd-20daa2afbb0e",
-                                "available_stock": 9900
+                                "available_stock": 900
                             }
                         ],
-                        "stock_in_hand": 5900,
+                        "stock_in_hand": 500,
                         "name": "Mumbai",
                         "id": "3d502606-7921-49bd-bb12-006aefb0360d"
                     }
@@ -441,6 +441,28 @@
                 "in_stock": true
             },
             "in_stock": true
+        }
+    ],
+    "sales_by_brands":[
+        {
+            "id": 1,
+            "name": "Apple",
+            "sales_percent": 32.39
+        },
+        {
+            "id": 2,
+            "name": "Garmin",
+            "sales_percent": 7.67
+        },
+        {
+            "id": 3,
+            "name": "Lenovo",
+            "sales_percent": 54.21
+        },
+        {
+            "id": 4,
+            "name": "Saucony",
+            "sales_percent": 5.72
         }
     ]
 }
