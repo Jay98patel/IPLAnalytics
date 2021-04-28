@@ -13,12 +13,15 @@ export class GraphComponent implements OnInit {
   @Input() barDataSet: ChartDataSets[];
   @Input() doughnutDataSet:ChartDataSets[];
   @Input() chartType: ChartType ;
+  @Input() height:number;
+  @Input() width:number;
   @Input() graphLegend;
   @Input() graphOptions: ChartOptions;
   @Input() graphColor:Color[];
   @Input() barChartPlugins = [pluginDataLabels];
   @Output() chartClick=new EventEmitter<{ event: MouseEvent, active: {}[] }>();
   @Output() chartHover=new EventEmitter<{ event: MouseEvent, active: {}[] }>();
+  
   constructor() { }
 
   ngOnInit(): void {

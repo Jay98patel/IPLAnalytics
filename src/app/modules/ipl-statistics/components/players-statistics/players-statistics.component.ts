@@ -40,7 +40,9 @@ export class PlayersStatisticsComponent implements OnInit {
   lineGraphType: ChartType = 'line';
   pieChartType: ChartType = 'pie';
   polarArea: ChartType = 'polarArea';
-
+  heigth: number = 400;
+  width: number = 300;
+  
   graphLegend = false;
   pieChartLegend=true;
 

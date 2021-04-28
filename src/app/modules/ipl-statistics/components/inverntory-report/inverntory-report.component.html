@@ -17,14 +17,8 @@
                 <div class="">
                     <app-graph baseChart [barDataSet]="inventoryReportDataSet" [graphLabels]="inventoryGraphLabels"
                         [graphOptions]="inventoryGraphOptions" [graphLegend]="inventoryGraphLegend"
-                        [chartType]="inventoryGraphType" [graphColor]="pieChartColor"></app-graph>
+                        [chartType]="inventoryGraphType" [graphColor]="pieChartColor" [height]="heigth" [width]="width"></app-graph>
                 </div>
-                <!-- <div *ngIf="customLegends">
-                    <p class="mb-0" *ngFor="let customLegend of customLegends;let i=index">
-                        <b (click)="toggleLegends(i)" class="box"></b>
-                        {{customLegend}}
-                    </p >
-                </div> -->
             </div>
         </div>
         <div class="card">
@@ -52,7 +46,7 @@
             <div class="card-body">
                 <app-graph baseChart [barDataSet]="topInventoryDataSet" [graphLabels]="inventoryGraphLabels"
                     [graphOptions]="inventoryGraphOptions" [graphLegend]="inventoryGraphLegend"
-                    [chartType]="inventoryGraphType" [graphColor]="pieChartColor"></app-graph>
+                    [chartType]="inventoryGraphType" [graphColor]="pieChartColor" [height]="heigth" [width]="width"></app-graph>
             </div>
         </div>
     </div>
