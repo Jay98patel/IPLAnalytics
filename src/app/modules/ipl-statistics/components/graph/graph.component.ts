@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
-import { Color, Label } from 'ng2-charts';
+import { BaseChartDirective, Color, Label } from 'ng2-charts';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 
 @Component({
@@ -9,6 +9,8 @@ import * as pluginDataLabels from 'chartjs-plugin-datalabels';
   styleUrls: ['./graph.component.scss']
 })
 export class GraphComponent implements OnInit {
+  @ViewChild(BaseChartDirective) chart: BaseChartDirective;
+
   @Input() graphLabels: Label[];
   @Input() barDataSet: ChartDataSets[];
   @Input() doughnutDataSet:ChartDataSets[];
@@ -35,5 +37,8 @@ export class GraphComponent implements OnInit {
     this.chartHover.emit({event,active});
   }
 
+  updateChart() {
+   return this.chart.chart.update();
+  }
 
 }

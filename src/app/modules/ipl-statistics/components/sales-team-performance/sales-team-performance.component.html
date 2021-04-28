@@ -4,12 +4,15 @@
                 Salespeople Top Brands
             </div>
             <div class="card-body">
-               
+                <app-graph baseChart [barDataSet]="salesDataSet" [graphLabels]="salesGraphLabels"
+                [graphOptions]="salesGraphOptions" [graphLegend]="salesGraphLegend"
+                [chartType]="saleshorizontalGraph" [graphColor]="pieChartColor" [height]="heigth" [width]="width"></app-graph>
             </div>
         </div>
         <div class="card">
             <div class="card-header">
                 Salespeople Top Brands
+                <button class="btn btn-primary pl-3" (click)="updateChart()">Update Chart</button>
             </div>
             <div class="card-body">
                 <app-graph baseChart [barDataSet]="salesDataSet" [graphLabels]="salesGraphLabels"

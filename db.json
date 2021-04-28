@@ -446,7 +446,7 @@
     "sales_by_brands":[
         {
             "id": 1,
-            "name": "Apple",
+            "name": "Apple | Asus ROg",
             "sales_percent": 32.39
         },
         {
@@ -491,7 +491,7 @@
         },
         {
             "id": 10,
-            "name": "Samsung",
+            "name": "Asusss",
             "sales_percent": 5.72
         }
     ]
